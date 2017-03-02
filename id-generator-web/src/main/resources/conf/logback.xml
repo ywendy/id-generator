@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <property name="BASE_LOG_PATH" value="../logs" />
+    <!-- 控制台输出日志 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>[%X{logSessionId}] [%date] [%-5p] [%thread] [%logger{10}] [%file:%line] %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </layout>
+    </appender>
+    <!-- 文件输出日志 (文件大小策略进行文件输出，超过指定大小对文件备份) -->
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${BASE_LOG_PATH}/generator-provider.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${BASE_LOG_PATH}/generator-provider.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <pattern>[%X{logSessionId}] [%date] [%-5p] [%thread] [%logger{10}] [%file:%line] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+
+
+
+
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILE" />
+    </root>
+
+
+</configuration>
+
+

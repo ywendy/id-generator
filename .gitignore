@@ -1,0 +1,16 @@
+.git
+.idea
+target
+*.iml
+.classpath
+.settings
+.project
+.build
+.idea
+
+*.class
+
+*.lock
+*.swp
+*.eml
+.metadata
